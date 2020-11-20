@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   with_options presence: true do
+    validates :image
     validates :name
     validates :content
     validates :price, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters.' }
