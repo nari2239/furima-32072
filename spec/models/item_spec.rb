@@ -31,27 +31,27 @@ RSpec.describe Item, type: :model do
       it 'category_idを選択していないと商品出品に失敗する' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category Select")
+        expect(@item.errors.full_messages).to include('Category Select')
       end
       it 'condition_idを選択していないと商品出品に失敗する' do
         @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition Select")
+        expect(@item.errors.full_messages).to include('Condition Select')
       end
       it 'delivery_fee_idを選択していないと商品出品に失敗する' do
         @item.delivery_fee_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery fee Select")
+        expect(@item.errors.full_messages).to include('Delivery fee Select')
       end
       it 'prefecture_idを選択していないと商品出品に失敗する' do
         @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture Select")
+        expect(@item.errors.full_messages).to include('Prefecture Select')
       end
       it 'period_idを選択していないと商品出品に失敗する' do
         @item.period_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Period Select")
+        expect(@item.errors.full_messages).to include('Period Select')
       end
       it 'priceが空だと商品出品に失敗する' do
         @item.price = nil
@@ -61,17 +61,17 @@ RSpec.describe Item, type: :model do
       it 'priceが300未満だと商品出品に失敗する' do
         @item.price = 200
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price Out of setting range")
+        expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
       it 'priceが9,999,999より大きいと商品出品に失敗する' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price Out of setting range")
+        expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
       it '出品する商品に紐づくユーザーがいないとき商品出品に失敗する' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
