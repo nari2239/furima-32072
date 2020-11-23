@@ -28,7 +28,7 @@ const card = () => {
       document.getElementById("card-exp-year").removeAttribute("name");
       document.getElementById("card-cvc").removeAttribute("name");
 
-      document.getElementById("charge-form").onsubmit();
+      document.getElementById("charge-form").submit();
     });
   });
 };
