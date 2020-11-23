@@ -5,8 +5,15 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
+      Payjp.api_key = "テスト秘密鍵を入れる"
+      Payjp::Charge.create(
+        amount: @item.price
+        card: order_params[:token],
+        currency: 'jpy'
+      )
       @order_address.save
       redirect_to root_path
     else
