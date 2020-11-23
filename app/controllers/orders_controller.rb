@@ -8,9 +8,9 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
-      Payjp.api_key = "テスト秘密鍵を入れる"
+      Payjp.api_key = "テスト秘密鍵をここに入れる"
       Payjp::Charge.create(
-        amount: @item.price
+        amount: @item.price,
         card: order_params[:token],
         currency: 'jpy'
       )

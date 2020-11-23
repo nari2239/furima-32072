@@ -1,9 +1,8 @@
 const card = () => {
-  Payjp.setPublicKey("テスト公開鍵を入れる");
+  Payjp.setPublicKey("テスト公開鍵をここに入れる");
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log("発火");
 
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
