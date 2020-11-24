@@ -62,6 +62,11 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Phone number Input only number")
       end
+      it 'phone_numberにハイフン(-)が含まれていると商品購入の登録ができない' do
+        @order_address.phone_number = '090-1234-5678'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number Input only number")
+      end
     end
   end
 end
